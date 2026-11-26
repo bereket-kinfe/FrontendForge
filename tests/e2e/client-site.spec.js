@@ -23,6 +23,7 @@ test("local client editor loads the matching brand and editable workspace", asyn
   await expect(page.getByText(config.brand.name, { exact: true }).first()).toBeVisible();
   await expect(page.getByRole("button", { name: /brand & content/i })).toBeVisible();
   await expect(page.getByRole("button", { name: /products \/ menu/i })).toBeVisible();
+  await page.getByRole("button", { name: /colors & layout/i }).click();
   await expect(page.locator('input[type="color"]')).toHaveCount(7);
 });
 
