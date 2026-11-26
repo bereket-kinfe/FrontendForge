@@ -19,11 +19,11 @@ export default defineConfig({
     { name: "mobile-chromium", use: { browserName: "chromium", viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true } }
   ],
   webServer: {
-    command: `npm run dev -- --hostname 127.0.0.1 --port ${port}`,
+    command: `npm run start -- --hostname 127.0.0.1 --port ${port}`,
     cwd: projectDir,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-    env: { NODE_ENV: "development" }
+    env: { NODE_ENV: "production", FORGE_LOCAL_PREVIEW: "1" }
   }
 });

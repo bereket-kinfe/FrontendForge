@@ -13,15 +13,26 @@ function request(url, { host, origin } = {}) {
   return { url, headers };
 }
 
-test("local Forge filesystem routes allow loopback hosts only in development", () => {
-  process.env.NODE_ENV = "development";
-  assert.equal(isLocalForgeRequest(request("http://localhost:3000", { host: "localhost:3000", origin: "http://localhost:3000" })), true);
-  assert.equal(isLocalForgeRequest(request("http://127.0.0.1:3000", { host: "127.0.0.1:3000" })), true);
-  assert.equal(isLocalForgeRequest(request("https://example.com", { host: "example.com" })), false);
-  assert.equal(isLocalForgeRequest(request("http://localhost:3000", { host: "localhost:3000", origin: "https://evil.example" })), false);
-  process.env.NODE_ENV = "production";
-  assert.equal(isLocalForgeRequest(request("http://localhost:3000", { host: "localhost:3000" })), false);
-  if (originalNodeEnv === undefined) delete process.env.NODE_ENV; else process.env.NODE_ENV = originalNodeEnv;
+test("local Forge filesystem routes require loopback hosts and an explicit production QA opt-in", () => {
+  const originalPreviewFlag = process.env.FORGE_LOCAL_PREVIEW;
+  try {
+    process.env.NODE_ENV = "development";
+    delete process.env.FORGE_LOCAL_PREVIEW;
+    assert.equal(isLocalForgeRequest(request("http://localhost:3000", { host: "localhost:3000", origin: "http://localhost:3000" })), true);
+    assert.equal(isLocalForgeRequest(request("http://127.0.0.1:3000", { host: "127.0.0.1:3000" })), true);
+    assert.equal(isLocalForgeRequest(request("https://example.com", { host: "example.com" })), false);
+    assert.equal(isLocalForgeRequest(request("http://localhost:3000", { host: "localhost:3000", origin: "https://evil.example" })), false);
+
+    process.env.NODE_ENV = "production";
+    assert.equal(isLocalForgeRequest(request("http://localhost:3000", { host: "localhost:3000" })), false);
+    process.env.FORGE_LOCAL_PREVIEW = "1";
+    assert.equal(isLocalForgeRequest(request("http://localhost:3000", { host: "localhost:3000" })), true);
+    assert.equal(isLocalForgeRequest(request("https://example.com", { host: "example.com" })), false);
+    assert.equal(isLocalForgeRequest(request("http://localhost:3000", { host: "localhost:3000", origin: "https://evil.example" })), false);
+  } finally {
+    if (originalNodeEnv === undefined) delete process.env.NODE_ENV; else process.env.NODE_ENV = originalNodeEnv;
+    if (originalPreviewFlag === undefined) delete process.env.FORGE_LOCAL_PREVIEW; else process.env.FORGE_LOCAL_PREVIEW = originalPreviewFlag;
+  }
 });
 
 test("admin/storefront mutations require an approved same origin", () => {

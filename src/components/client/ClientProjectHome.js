@@ -300,7 +300,7 @@ export default function ClientProjectHome({ config }) {
     ? config.orderedSections.filter((s) => s !== "header" && s !== "footer")
     : ["hero", "collections", "catalog", "roomInspiration", "about", "gallery", "testimonials", "faq", "booking", "location", "contact"];
 
-  return <main className={`client-project client-project-${template} client-header-${componentStyles.header} client-hero-${componentStyles.hero} client-catalog-${componentStyles.catalog} client-buttons-${componentStyles.buttons}`} style={cssVars}>
+  return <main className={`client-project client-project-${template} client-project-brand-${slug} client-header-${componentStyles.header} client-hero-${componentStyles.hero} client-catalog-${componentStyles.catalog} client-buttons-${componentStyles.buttons}`} style={cssVars}>
     {has("header") && <header className="client-project-header">
       <Link href="/" className="client-project-brand">
         {brand.logoUrl ? <img src={brand.logoUrl} alt={`${brand.name} logo`} /> : <span className="client-project-mark">{brand.name.slice(0, 1).toUpperCase()}</span>}

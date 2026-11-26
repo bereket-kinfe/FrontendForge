@@ -33,7 +33,7 @@ async function readConfig(configPath) {
 }
 
 export async function GET(request) {
-  if (process.env.NODE_ENV === "production" || !isLocalRequest(request)) return blocked();
+  if ((process.env.NODE_ENV === "production" && process.env.FORGE_LOCAL_PREVIEW !== "1") || !isLocalRequest(request)) return blocked();
   try {
     const configPath = path.join(process.cwd(), "src", "config", "client-project.json");
     return NextResponse.json({ ok: true, config: await readConfig(configPath) });
@@ -43,7 +43,7 @@ export async function GET(request) {
 }
 
 export async function PUT(request) {
-  if (process.env.NODE_ENV === "production" || !isLocalRequest(request)) return blocked();
+  if ((process.env.NODE_ENV === "production" && process.env.FORGE_LOCAL_PREVIEW !== "1") || !isLocalRequest(request)) return blocked();
   try {
     const body = await request.json();
     const configPath = path.join(process.cwd(), "src", "config", "client-project.json");

@@ -24,13 +24,22 @@ export default async function ActualClientWebsitePreview({ params }) {
     notFound();
   }
 
+  const brandName = config.brand?.name || slug;
+  const brandColor = config.theme?.primary || "#5b58df";
+
   return (
-    <main className="forge-actual-preview-page">
+    <div className="forge-actual-preview-page">
       <div className="forge-actual-preview-toolbar">
-        <span><strong>{config.brand?.name || slug}</strong><small>Actual generated client website · local preview</small></span>
-        <a href="/" target="_blank" rel="noreferrer">Back to Forge Studio ↗</a>
+        <div className="forge-actual-preview-toolbar-brand">
+          <span style={{ background: brandColor }}>{brandName.slice(0, 1).toUpperCase()}</span>
+          <div><strong>{brandName}</strong><small>Actual generated storefront · {slug}</small></div>
+        </div>
+        <div className="forge-actual-preview-toolbar-meta">
+          <span><i/>LOCAL PREVIEW SESSION</span>
+          <a href="/" target="_blank" rel="noreferrer">Return to Forge Studio ↗</a>
+        </div>
       </div>
       <ClientProjectHome config={config}/>
-    </main>
+    </div>
   );
 }

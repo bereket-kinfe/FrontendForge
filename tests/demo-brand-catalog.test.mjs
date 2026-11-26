@@ -31,3 +31,18 @@ test("demo primary palettes are distinct and each brand has its own palette key"
     assert.ok(generator.includes(key + ":"), "missing palette " + key);
   }
 });
+
+
+test("each sample brand receives its own storefront art direction class", () => {
+  const renderer = fs.readFileSync(new URL("../src/components/client/ClientProjectHome.js", import.meta.url), "utf8");
+  const artDirection = fs.readFileSync(new URL("../src/components/client/ClientProjectHomeArtDirection.css", import.meta.url), "utf8");
+  const slugs = [
+    "machi-coffee-demo", "daybreak-coffee-demo", "foodie-kitchen-demo", "saffron-stone-demo",
+    "beetle-home-demo", "sable-living-demo", "nova-collective-demo", "forme-studio-demo",
+    "greenbasket-market-demo", "harvest-market-demo", "urban-bites-demo", "dash-kitchen-demo"
+  ];
+  assert.ok(renderer.includes("client-project-brand-${slug}"), "homepage renderer must attach a slug-specific brand class");
+  for (const slug of slugs) {
+    assert.ok(artDirection.includes(".client-project-brand-" + slug), "missing brand art direction for " + slug);
+  }
+});

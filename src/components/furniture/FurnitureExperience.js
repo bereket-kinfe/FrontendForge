@@ -71,7 +71,7 @@ export default function FurnitureExperience({ products, currency = "ETB", locale
   ].join("\n");
   const enquiryUrl = buildFurnitureEnquiryUrl(whatsappNumber, message);
 
-  return <div className="furniture-commerce">
+  return <div className="furniture-commerce" id="shop">
     <div className="furniture-filter-row">
       <div className="furniture-filters" aria-label="Filter products">
         {categories.map((item) => <button type="button" key={item} className={category === item ? "active" : ""} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}

@@ -1,10 +1,13 @@
 const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "[::1]"]);
 
 export function isLocalForgeRequest(request) {
-  if (process.env.NODE_ENV === "production") return false;
+  const productionPreviewEnabled = process.env.NODE_ENV !== "production" || process.env.FORGE_LOCAL_PREVIEW === "1";
+  if (!productionPreviewEnabled) return false;
+
   const host = String(request.headers.get("host") || "").toLowerCase();
   const hostname = host.startsWith("[") ? host.split("]")[0] + "]" : host.split(":")[0];
   if (!LOCAL_HOSTS.has(hostname)) return false;
+
   const origin = request.headers.get("origin");
   if (origin) {
     try {

@@ -23,7 +23,7 @@ function isLocalRequest(request) {
 }
 
 export async function POST(request) {
-  if (process.env.NODE_ENV === "production" || !isLocalRequest(request)) {
+  if ((process.env.NODE_ENV === "production" && process.env.FORGE_LOCAL_PREVIEW !== "1") || !isLocalRequest(request)) {
     return NextResponse.json({ ok: false, error: "Local asset uploads are available only in this project's development server." }, { status: 403 });
   }
   try {

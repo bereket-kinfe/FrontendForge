@@ -127,3 +127,92 @@
  .client-project-footer{padding:32px 18px 20px}
 }
 @media(prefers-reduced-motion:reduce){.client-project *{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+
+/* Brand art direction for the 12 showcase storefronts. Palette tokens stay config-driven. */
+.client-project-brand-machi-coffee-demo{--client-card-radius:26px;--client-hero-radius:48% 48% 12px 12px}
+.client-project-brand-machi-coffee-demo .client-project-hero{background:radial-gradient(circle at 12% 12%,color-mix(in srgb,var(--client-accent) 65%,transparent),transparent 32%),linear-gradient(125deg,var(--client-secondary),var(--client-bg) 72%)}
+.client-project-brand-machi-coffee-demo .client-project-hero h1,.client-project-brand-machi-coffee-demo .client-project-section-head h2{font-family:Georgia,serif;font-weight:500;letter-spacing:-.045em}
+.client-project-brand-machi-coffee-demo .client-project-hero-media{border:7px solid var(--client-surface);box-shadow:0 24px 60px color-mix(in srgb,var(--client-primary) 18%,transparent)}
+.client-project-brand-machi-coffee-demo .client-project-button{border-radius:12px}
+
+.client-project-brand-daybreak-coffee-demo{--client-card-radius:15px;--client-hero-radius:18px 18px 46% 18px}
+.client-project-brand-daybreak-coffee-demo .client-project-hero{background:linear-gradient(135deg,var(--client-secondary),var(--client-bg) 65%),var(--client-bg)}
+.client-project-brand-daybreak-coffee-demo .client-project-hero h1,.client-project-brand-daybreak-coffee-demo .client-project-section-head h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.035em}
+.client-project-brand-daybreak-coffee-demo .client-project-hero-media{border-radius:18px 18px 46% 18px;box-shadow:12px 12px 0 color-mix(in srgb,var(--client-accent) 55%,transparent)}
+.client-project-brand-daybreak-coffee-demo .client-project-product{border-color:color-mix(in srgb,var(--client-primary) 18%,transparent)}
+
+.client-project-brand-foodie-kitchen-demo{--client-card-radius:18px;--client-hero-radius:28px 28px 100px 28px}
+.client-project-brand-foodie-kitchen-demo .client-project-hero{background:radial-gradient(circle at 88% 14%,color-mix(in srgb,var(--client-accent) 56%,transparent),transparent 27%),linear-gradient(125deg,var(--client-primary),color-mix(in srgb,var(--client-primary) 48%,var(--client-text)));color:#fff}
+.client-project-brand-foodie-kitchen-demo .client-project-hero-copy>p,.client-project-brand-foodie-kitchen-demo .client-project-proof,.client-project-brand-foodie-kitchen-demo .client-project-textlink{color:#fff}
+.client-project-brand-foodie-kitchen-demo .client-project-kicker{color:var(--client-accent)}
+.client-project-brand-foodie-kitchen-demo .client-project-hero-media{border-radius:28px 28px 100px 28px;box-shadow:13px 13px 0 color-mix(in srgb,var(--client-accent) 60%,transparent)}
+.client-project-brand-foodie-kitchen-demo .client-project-button{background:var(--client-accent);color:var(--client-text)!important;border-radius:10px}
+
+.client-project-brand-saffron-stone-demo{--client-card-radius:5px;--client-hero-radius:4px}
+.client-project-brand-saffron-stone-demo .client-project-hero{background:linear-gradient(110deg,var(--client-text),color-mix(in srgb,var(--client-primary) 50%,var(--client-text)));color:var(--client-bg)}
+.client-project-brand-saffron-stone-demo .client-project-hero-copy>p,.client-project-brand-saffron-stone-demo .client-project-proof,.client-project-brand-saffron-stone-demo .client-project-textlink{color:var(--client-bg)}
+.client-project-brand-saffron-stone-demo .client-project-kicker{color:var(--client-accent)}
+.client-project-brand-saffron-stone-demo .client-project-hero h1,.client-project-brand-saffron-stone-demo .client-project-section-head h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.035em}
+.client-project-brand-saffron-stone-demo .client-project-hero-media{border-radius:4px 4px 100px 4px;box-shadow:1px 1px 0 1px var(--client-accent)}
+.client-project-brand-saffron-stone-demo .client-project-button{border-radius:3px}
+
+.client-project-brand-beetle-home-demo{--client-card-radius:3px;--client-hero-radius:2px}
+.client-project-brand-beetle-home-demo .client-project-hero{background:linear-gradient(90deg,var(--client-bg),var(--client-secondary))}
+.client-project-brand-beetle-home-demo .client-project-hero h1,.client-project-brand-beetle-home-demo .client-project-section-head h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.05em}
+.client-project-brand-beetle-home-demo .client-project-hero-media{border:1px solid color-mix(in srgb,var(--client-text) 15%,transparent);box-shadow:none}
+.client-project-brand-beetle-home-demo .client-project-product{border:0;background:transparent;box-shadow:none}
+.client-project-brand-beetle-home-demo .client-project-product-image{border-radius:2px}
+
+.client-project-brand-sable-living-demo{--client-card-radius:20px;--client-hero-radius:48% 48% 8px 8px}
+.client-project-brand-sable-living-demo .client-project-hero{background:radial-gradient(circle at 88% 16%,color-mix(in srgb,var(--client-accent) 58%,transparent),transparent 28%),linear-gradient(130deg,var(--client-bg),var(--client-secondary))}
+.client-project-brand-sable-living-demo .client-project-hero h1,.client-project-brand-sable-living-demo .client-project-section-head h2{font-family:Georgia,serif;font-weight:400}
+.client-project-brand-sable-living-demo .client-project-hero-media{border-radius:48% 48% 8px 8px;box-shadow:0 22px 55px color-mix(in srgb,var(--client-primary) 18%,transparent)}
+.client-project-brand-sable-living-demo .client-project-product{padding:7px;background:var(--client-surface);border-radius:20px}
+
+.client-project-brand-nova-collective-demo{--client-card-radius:3px;--client-hero-radius:3px}
+.client-project-brand-nova-collective-demo .client-project-hero{background:linear-gradient(118deg,var(--client-text),color-mix(in srgb,var(--client-primary) 70%,var(--client-text)));color:var(--client-bg)}
+.client-project-brand-nova-collective-demo .client-project-hero-copy>p,.client-project-brand-nova-collective-demo .client-project-proof,.client-project-brand-nova-collective-demo .client-project-textlink{color:var(--client-bg)}
+.client-project-brand-nova-collective-demo .client-project-kicker{color:var(--client-accent)}
+.client-project-brand-nova-collective-demo .client-project-hero h1{font-size:clamp(50px,7vw,94px);text-transform:uppercase;letter-spacing:-.075em}
+.client-project-brand-nova-collective-demo .client-project-hero-media{box-shadow:14px 14px 0 var(--client-primary)}
+.client-project-brand-nova-collective-demo .client-project-button{border-radius:2px}
+
+.client-project-brand-forme-studio-demo{--client-card-radius:2px;--client-hero-radius:2px}
+.client-project-brand-forme-studio-demo .client-project-hero{background:linear-gradient(135deg,var(--client-bg),var(--client-secondary))}
+.client-project-brand-forme-studio-demo .client-project-hero h1,.client-project-brand-forme-studio-demo .client-project-section-head h2{font-family:Arial,sans-serif;font-weight:800;letter-spacing:-.065em;text-transform:uppercase}
+.client-project-brand-forme-studio-demo .client-project-kicker{font-weight:800;letter-spacing:.19em}
+.client-project-brand-forme-studio-demo .client-project-hero-media{border:1px solid var(--client-text);box-shadow:12px 12px 0 var(--client-accent)}
+.client-project-brand-forme-studio-demo .client-project-button,.client-project-brand-forme-studio-demo .client-project-pill{border-radius:2px}
+
+.client-project-brand-greenbasket-market-demo{--client-card-radius:24px;--client-hero-radius:50% 50% 18px 18px}
+.client-project-brand-greenbasket-market-demo .client-project-hero{background:radial-gradient(circle at 15% 14%,color-mix(in srgb,var(--client-accent) 70%,transparent),transparent 28%),linear-gradient(125deg,var(--client-secondary),var(--client-bg))}
+.client-project-brand-greenbasket-market-demo .client-project-hero h1,.client-project-brand-greenbasket-market-demo .client-project-section-head h2{font-family:Georgia,serif;font-weight:500}
+.client-project-brand-greenbasket-market-demo .client-project-hero-media{border-radius:50% 50% 18px 18px}
+.client-project-brand-greenbasket-market-demo .client-project-product{border-radius:24px;box-shadow:0 10px 28px color-mix(in srgb,var(--client-primary) 10%,transparent)}
+.client-project-brand-greenbasket-market-demo .client-project-product-image{border-radius:18px}
+
+.client-project-brand-harvest-market-demo{--client-card-radius:12px;--client-hero-radius:14px 14px 48% 14px}
+.client-project-brand-harvest-market-demo .client-project-hero{background:radial-gradient(circle at 82% 12%,color-mix(in srgb,var(--client-accent) 66%,transparent),transparent 25%),linear-gradient(125deg,var(--client-bg),var(--client-secondary))}
+.client-project-brand-harvest-market-demo .client-project-hero h1,.client-project-brand-harvest-market-demo .client-project-section-head h2{font-family:Georgia,serif;font-weight:500;letter-spacing:-.04em}
+.client-project-brand-harvest-market-demo .client-project-hero-media{border-radius:14px 14px 48% 14px;box-shadow:12px 12px 0 color-mix(in srgb,var(--client-accent) 70%,transparent)}
+.client-project-brand-harvest-market-demo .client-project-product{background:var(--client-surface);border-color:color-mix(in srgb,var(--client-primary) 16%,transparent)}
+
+.client-project-brand-urban-bites-demo{--client-card-radius:12px;--client-hero-radius:6px 70px 6px 70px}
+.client-project-brand-urban-bites-demo .client-project-hero{background:linear-gradient(125deg,var(--client-primary),color-mix(in srgb,var(--client-primary) 48%,var(--client-text)));color:#fff}
+.client-project-brand-urban-bites-demo .client-project-hero-copy>p,.client-project-brand-urban-bites-demo .client-project-proof,.client-project-brand-urban-bites-demo .client-project-textlink{color:#fff}
+.client-project-brand-urban-bites-demo .client-project-kicker{color:var(--client-accent)}
+.client-project-brand-urban-bites-demo .client-project-hero-media{border-radius:6px 70px 6px 70px;box-shadow:15px 15px 0 var(--client-accent)}
+.client-project-brand-urban-bites-demo .client-project-button{background:var(--client-accent);color:var(--client-text)!important;border-radius:8px}
+
+.client-project-brand-dash-kitchen-demo{--client-card-radius:24px;--client-hero-radius:28px}
+.client-project-brand-dash-kitchen-demo .client-project-hero{background:radial-gradient(circle at 12% 12%,color-mix(in srgb,var(--client-accent) 68%,transparent),transparent 28%),linear-gradient(130deg,var(--client-secondary),var(--client-bg))}
+.client-project-brand-dash-kitchen-demo .client-project-hero h1{font-family:Arial,sans-serif;font-weight:900;letter-spacing:-.07em}
+.client-project-brand-dash-kitchen-demo .client-project-hero-media{border-radius:28px;box-shadow:0 22px 55px color-mix(in srgb,var(--client-primary) 22%,transparent)}
+.client-project-brand-dash-kitchen-demo .client-project-product{border-radius:24px}
+.client-project-brand-dash-kitchen-demo .client-project-product-bottom a{background:var(--client-primary);color:#fff!important;padding:10px 13px;border-radius:999px}
+
+@media(max-width:650px){
+ .client-project-brand-nova-collective-demo .client-project-hero h1{font-size:clamp(40px,10vw,58px)}
+ .client-project-brand-urban-bites-demo .client-project-hero-media,.client-project-brand-foodie-kitchen-demo .client-project-hero-media{border-radius:22px}
+}
