@@ -67,3 +67,13 @@ test("shared furniture currency formatter handles ETB and invalid locale safely"
  assert.match(formatFurnitureMoney(24900,"ETB","en-ET"),/24,900/);
  assert.match(formatFurnitureMoney(24900,"ETB","invalid_locale"),/ETB/);
 });
+
+
+test("furniture multi-page shop and category routes pass serializable currency props", () => {
+ const multiPage = fs.readFileSync("src/components/client/ClientMultiPage.js", "utf8");
+ assert.ok(multiPage.includes('import { formatFurnitureMoney, normalizeFurnitureClientProduct }'));
+ assert.equal((multiPage.match(/currency={business\.currency} locale={business\.locale}/g) || []).length, 2);
+ assert.ok(!multiPage.includes('money={(value) => money(value, config)}'));
+ assert.ok(!multiPage.includes('function money(value, config)'));
+ assert.ok(multiPage.includes('formatFurnitureMoney(business.deliveryFee || 0, business.currency, business.locale)'));
+});
