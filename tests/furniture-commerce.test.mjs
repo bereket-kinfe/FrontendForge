@@ -44,6 +44,9 @@ test('furniture client component receives serializable currency settings rather 
  const experience=fs.readFileSync('src/components/furniture/FurnitureExperience.js','utf8');
  const page=fs.readFileSync('src/app/templates/furniture/page.js','utf8');
  const shared=fs.readFileSync('src/components/client/ClientProjectHome.js','utf8');
+ const detail=fs.readFileSync('src/components/furniture/FurnitureProductDetail.js','utf8');
+ const detailPage=fs.readFileSync('src/app/templates/furniture/products/[slug]/page.js','utf8');
+ const copy=fs.readFileSync('src/lib/forge/copy.mjs','utf8');
  assert.ok(experience.includes('currency = "ETB", locale = "en-ET"'));
  assert.ok(experience.includes('function formatFurnitureMoney'));
  assert.ok(page.includes('currency={furnitureStore.currency}'));
@@ -51,4 +54,15 @@ test('furniture client component receives serializable currency settings rather 
  assert.ok(!page.includes('money={furnitureMoney}'));
  assert.ok(shared.includes('currency={business.currency}'));
  assert.ok(!shared.includes('money={(val) => money(val, business.currency)}'));
+ assert.ok(detail.includes('currency = "ETB", locale = "en-ET"'));
+ assert.ok(detailPage.includes('currency={furnitureStore.currency}'));
+ assert.ok(!detailPage.includes('money={furnitureMoney}'));
+ assert.ok(copy.includes('currency={config.business.currency}'));
+ assert.ok(!copy.includes('money={(value) => money(value, config)}'));
+});
+
+test("shared furniture currency formatter handles ETB and invalid locale safely",async()=>{
+ const {formatFurnitureMoney}=await import("../src/lib/furniture-store.mjs");
+ assert.match(formatFurnitureMoney(24900,"ETB","en-ET"),/24,900/);
+ assert.match(formatFurnitureMoney(24900,"ETB","invalid_locale"),/ETB/);
 });

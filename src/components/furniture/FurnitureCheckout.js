@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
   FURNITURE_CART_KEY, buildFurnitureEnquiryMessage, buildFurnitureEnquiryUrl,
-  getFurnitureCartTotals, setFurnitureCartQuantity, removeFurnitureCartItem
+  formatFurnitureMoney, getFurnitureCartTotals, setFurnitureCartQuantity, removeFurnitureCartItem
 } from "@/lib/furniture-store.mjs";
 
 export default function FurnitureCheckout({ store, cartStorageKey = FURNITURE_CART_KEY, productBasePath = "/templates/furniture" }) {
@@ -23,7 +23,7 @@ export default function FurnitureCheckout({ store, cartStorageKey = FURNITURE_CA
 
   const totals = useMemo(() => getFurnitureCartTotals(cart), [cart]);
   const update = (event) => setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
-  const money = (value) => new Intl.NumberFormat(store.locale || "en-ET", { style: "currency", currency: store.currency || "ETB", maximumFractionDigits: 0 }).format(value);
+  const money = (value) => formatFurnitureMoney(value, store.currency, store.locale);
   const message = buildFurnitureEnquiryMessage({ brandName: store.brandName, customer: form, cart, total: totals.subtotal, money });
   const whatsappUrl = buildFurnitureEnquiryUrl(store.whatsappNumber, message);
   const collectionHref = productBasePath ? `${productBasePath}/shop` : "/shop";

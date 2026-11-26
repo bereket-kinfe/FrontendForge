@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
   FURNITURE_ADMIN_KEY, FURNITURE_CART_KEY, addFurnitureCartItem,
-  createFurnitureCartLine
+  createFurnitureCartLine, formatFurnitureMoney
 } from "@/lib/furniture-store.mjs";
 
-export default function FurnitureProductDetail({ product, money, brandName = "Furniture", cartStorageKey = FURNITURE_CART_KEY, wishlistStorageKey, adminStorageKey = FURNITURE_ADMIN_KEY, checkoutPath = "/templates/furniture/checkout", productBasePath = "/templates/furniture" }) {
+export default function FurnitureProductDetail({ product, currency = "ETB", locale = "en-ET", brandName = "Furniture", cartStorageKey = FURNITURE_CART_KEY, wishlistStorageKey, adminStorageKey = FURNITURE_ADMIN_KEY, checkoutPath = "/templates/furniture/checkout", productBasePath = "/templates/furniture" }) {
   const [image, setImage] = useState(product.gallery?.[0] || product.image);
   const [material, setMaterial] = useState(product.materials?.[0] || "Standard");
   const [color, setColor] = useState(product.colors?.[0] || "Standard");
@@ -18,6 +18,7 @@ export default function FurnitureProductDetail({ product, money, brandName = "Fu
   const [stock, setStock] = useState(product.stock ?? 0);
   const [price, setPrice] = useState(product.price);
   const selectedPrice = Math.max(0, price + Number(product.sizePriceAdjustments?.[size] || 0));
+  const money = (value) => formatFurnitureMoney(value, currency, locale);
 
   useEffect(() => {
     try {

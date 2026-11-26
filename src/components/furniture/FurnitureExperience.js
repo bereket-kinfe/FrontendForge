@@ -6,17 +6,9 @@ import { useEffect, useMemo, useState } from "react";
 import {
   FURNITURE_ADMIN_KEY, FURNITURE_CART_KEY, FURNITURE_WISHLIST_KEY,
   addFurnitureCartItem, applyFurnitureCatalogOverrides, buildFurnitureEnquiryUrl,
-  createFurnitureCartLine, getFurnitureCartTotals, removeFurnitureCartItem,
+  createFurnitureCartLine, formatFurnitureMoney, getFurnitureCartTotals, removeFurnitureCartItem,
   setFurnitureCartQuantity
 } from "@/lib/furniture-store.mjs";
-
-function formatFurnitureMoney(value, currency = "ETB", locale = "en-ET") {
-  try {
-    return new Intl.NumberFormat(locale, { style: "currency", currency, maximumFractionDigits: 0 }).format(value);
-  } catch {
-    return `${currency} ${Number(value || 0).toLocaleString(locale || "en")}`;
-  }
-}
 
 export default function FurnitureExperience({ products, currency = "ETB", locale = "en-ET", whatsappNumber = "", brandName = "the store", productBasePath = "/templates/furniture", checkoutPath = "/templates/furniture/checkout", cartStorageKey = FURNITURE_CART_KEY, wishlistStorageKey = FURNITURE_WISHLIST_KEY, adminStorageKey = FURNITURE_ADMIN_KEY }) {
   const [category, setCategory] = useState("All pieces");

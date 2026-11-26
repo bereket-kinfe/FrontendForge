@@ -56,10 +56,6 @@ import { normalizeFurnitureClientProduct } from "@/lib/furniture-store.mjs";
 import { readClientConfig } from "@/lib/client-config.mjs";
 
 export const dynamic = "force-dynamic";
-function money(value, config) {
-  try { return new Intl.NumberFormat(config.business.locale || "en", { style: "currency", currency: config.business.currency || "ETB", maximumFractionDigits: 0 }).format(value); }
-  catch { return (config.business.currency || "ETB") + " " + Number(value || 0).toLocaleString(); }
-}
 export async function generateMetadata({ params }) {
   const config = readClientConfig();
   const { slug } = await params;
@@ -73,7 +69,7 @@ export default async function FurnitureProductPage({ params }) {
   if (!rawProduct) notFound();
   const product = normalizeFurnitureClientProduct(rawProduct);
   const cartStorageKey = "frontendforge:furniture-cart:" + config.slug;
-  return <FurnitureProductDetail product={product} money={(value) => money(value, config)} cartStorageKey={cartStorageKey} adminStorageKey={"frontendforge:furniture-admin:" + config.slug} checkoutPath="/checkout" productBasePath="" brandName={config.brand.name} />;
+  return <FurnitureProductDetail product={product} currency={config.business.currency} locale={config.business.locale} cartStorageKey={cartStorageKey} adminStorageKey={"frontendforge:furniture-admin:" + config.slug} checkoutPath="/checkout" productBasePath="" brandName={config.brand.name} />;
 }
 `;
   }

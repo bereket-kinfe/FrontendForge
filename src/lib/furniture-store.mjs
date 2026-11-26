@@ -1,3 +1,13 @@
+export function formatFurnitureMoney(value, currency = "ETB", locale = "en-ET") {
+  const safeCurrency = /^[A-Z]{3}$/.test(String(currency || "")) ? String(currency) : "ETB";
+  const amount = Number.isFinite(Number(value)) ? Number(value) : 0;
+  try {
+    return new Intl.NumberFormat(locale || "en", { style: "currency", currency: safeCurrency, maximumFractionDigits: 0 }).format(amount);
+  } catch {
+    return safeCurrency + " " + amount.toLocaleString(locale || "en");
+  }
+}
+
 export const FURNITURE_CART_KEY = "frontendforge:furniture-cart:v2";
 export const FURNITURE_WISHLIST_KEY = "frontendforge:furniture-wishlist:v1";
 export const FURNITURE_ADMIN_KEY = "frontendforge:furniture-admin:v1";
