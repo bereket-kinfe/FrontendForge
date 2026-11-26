@@ -48,13 +48,14 @@ test('furniture client component receives serializable currency settings rather 
  const detailPage=fs.readFileSync('src/app/templates/furniture/products/[slug]/page.js','utf8');
  const copy=fs.readFileSync('src/lib/forge/copy.mjs','utf8');
  assert.ok(experience.includes('currency = "ETB", locale = "en-ET"'));
- assert.ok(experience.includes('function formatFurnitureMoney'));
+ assert.ok(experience.includes('formatFurnitureMoney, getFurnitureCartTotals'));
  assert.ok(page.includes('currency={furnitureStore.currency}'));
  assert.ok(page.includes('locale={furnitureStore.locale}'));
  assert.ok(!page.includes('money={furnitureMoney}'));
  assert.ok(shared.includes('currency={business.currency}'));
  assert.ok(!shared.includes('money={(val) => money(val, business.currency)}'));
  assert.ok(detail.includes('currency = "ETB", locale = "en-ET"'));
+ assert.ok(fs.readFileSync('src/lib/furniture-store.mjs','utf8').includes('export function formatFurnitureMoney'));
  assert.ok(detailPage.includes('currency={furnitureStore.currency}'));
  assert.ok(!detailPage.includes('money={furnitureMoney}'));
  assert.ok(copy.includes('currency={config.business.currency}'));

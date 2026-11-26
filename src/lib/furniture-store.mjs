@@ -4,7 +4,7 @@ export function formatFurnitureMoney(value, currency = "ETB", locale = "en-ET") 
   try {
     return new Intl.NumberFormat(locale || "en", { style: "currency", currency: safeCurrency, maximumFractionDigits: 0 }).format(amount);
   } catch {
-    return safeCurrency + " " + amount.toLocaleString(locale || "en");
+    return safeCurrency + " " + amount.toLocaleString();
   }
 }
 
