@@ -72,7 +72,13 @@ test("shared furniture currency formatter handles ETB and invalid locale safely"
 test("furniture multi-page shop and category routes pass serializable currency props", () => {
  const multiPage = fs.readFileSync("src/components/client/ClientMultiPage.js", "utf8");
  assert.ok(multiPage.includes('import { formatFurnitureMoney, normalizeFurnitureClientProduct }'));
- assert.equal((multiPage.match(/currency={business\.currency} locale={business\.locale}/g) || []).length, 2);
+ const furnitureComponents = [...multiPage.matchAll(/<FurnitureExperience\\b[^>]*\\/>/gs)].map((match) => match[0]);
+ assert.equal(furnitureComponents.length, 2);
+ for (const component of furnitureComponents) {
+  assert.ok(component.includes('currency={business.currency}'));
+  assert.ok(component.includes('locale={business.locale}'));
+  assert.ok(!component.includes('money='));
+ }
  assert.ok(!multiPage.includes('money={(value) => money(value, config)}'));
  assert.ok(!multiPage.includes('function money(value, config)'));
  assert.ok(multiPage.includes('formatFurnitureMoney(business.deliveryFee || 0, business.currency, business.locale)'));
