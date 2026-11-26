@@ -38,3 +38,17 @@ test('furniture enquiry URL requires a phone number and encodes the order messag
  assert.equal(buildFurnitureEnquiryUrl('', 'hello'), '');
  assert.match(buildFurnitureEnquiryUrl('+251 911 000 000','hello world'), /^https:\/\/wa\.me\/251911000000\?text=hello%20world$/);
 });
+
+
+test('furniture client component receives serializable currency settings rather than a server formatter',()=>{
+ const experience=fs.readFileSync('src/components/furniture/FurnitureExperience.js','utf8');
+ const page=fs.readFileSync('src/app/templates/furniture/page.js','utf8');
+ const shared=fs.readFileSync('src/components/client/ClientProjectHome.js','utf8');
+ assert.ok(experience.includes('currency = "ETB", locale = "en-ET"'));
+ assert.ok(experience.includes('function formatFurnitureMoney'));
+ assert.ok(page.includes('currency={furnitureStore.currency}'));
+ assert.ok(page.includes('locale={furnitureStore.locale}'));
+ assert.ok(!page.includes('money={furnitureMoney}'));
+ assert.ok(shared.includes('currency={business.currency}'));
+ assert.ok(!shared.includes('money={(val) => money(val, business.currency)}'));
+});

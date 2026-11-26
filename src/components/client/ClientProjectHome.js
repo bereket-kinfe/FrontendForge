@@ -133,7 +133,8 @@ export default function ClientProjectHome({ config }) {
           {template === "furniture" ? (
             <FurnitureExperience
               products={furnitureCatalog}
-              money={(val) => money(val, business.currency)}
+              currency={business.currency}
+              locale={business.locale || "en-ET"}
               whatsappNumber={contact.whatsapp || contact.phone}
               brandName={brand.name}
               productBasePath=""
