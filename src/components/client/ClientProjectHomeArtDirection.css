@@ -216,3 +216,14 @@
  .client-project-brand-nova-collective-demo .client-project-hero h1{font-size:clamp(40px,10vw,58px)}
  .client-project-brand-urban-bites-demo .client-project-hero-media,.client-project-brand-foodie-kitchen-demo .client-project-hero-media{border-radius:22px}
 }
+
+
+/* Keep each brand's hero text contrast correct when its composition reverses the niche default. */
+.client-project-brand-saffron-stone-demo .client-project-hero{color:var(--client-text)}
+.client-project-brand-saffron-stone-demo .client-project-hero-copy>p,.client-project-brand-saffron-stone-demo .client-project-proof,.client-project-brand-saffron-stone-demo .client-project-textlink{color:var(--client-text)}
+.client-project-brand-forme-studio-demo .client-project-hero{color:var(--client-text)}
+.client-project-brand-forme-studio-demo .client-project-hero-copy>p,.client-project-brand-forme-studio-demo .client-project-proof,.client-project-brand-forme-studio-demo .client-project-textlink{color:var(--client-muted)}
+.client-project-brand-forme-studio-demo .client-project-kicker{color:var(--client-primary)}
+.client-project-brand-dash-kitchen-demo .client-project-hero{color:var(--client-text)}
+.client-project-brand-dash-kitchen-demo .client-project-hero-copy>p,.client-project-brand-dash-kitchen-demo .client-project-proof,.client-project-brand-dash-kitchen-demo .client-project-textlink{color:var(--client-muted)}
+.client-project-brand-dash-kitchen-demo .client-project-kicker{color:var(--client-primary)}

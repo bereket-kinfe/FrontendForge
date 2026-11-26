@@ -3,7 +3,7 @@ const port = Number(process.env.MASTER_TEST_PORT || 3189);
 const baseURL = `http://127.0.0.1:${port}`;
 export default defineConfig({
   testDir: "./tests/e2e",
-  testMatch: ["furniture-starter.spec.js", "admin-workspace.spec.js"],
+  testMatch: ["furniture-starter.spec.js", "admin-workspace.spec.js", "forge-preview.spec.js"],
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,

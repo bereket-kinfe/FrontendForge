@@ -7,6 +7,7 @@ const baseURL = `http://127.0.0.1:${port}`;
 
 export default defineConfig({
   testDir: "./tests/e2e",
+  testMatch: ["admin-workspace.spec.js", "client-site.spec.js"],
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
