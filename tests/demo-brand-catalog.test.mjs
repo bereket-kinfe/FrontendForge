@@ -46,3 +46,8 @@ test("each sample brand receives its own storefront art direction class", () => 
     assert.ok(artDirection.includes(".client-project-brand-" + slug), "missing brand art direction for " + slug);
   }
 });
+
+
+test("demo About and Gallery sections use varied catalog photography instead of repeating the hero", () => {
+  assert.match(generator, /galleryImages:client\.products\.map\(\(item\)=>item\.image\)\.join\("\\n"\)/);
+});

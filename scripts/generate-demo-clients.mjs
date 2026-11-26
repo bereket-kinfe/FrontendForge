@@ -62,7 +62,7 @@ for (const client of clients) {
   const integrations={ordering:{provider:isFood?"FrontendForge WhatsApp ordering":"Not selected"},delivery:{provider:client.deliveryFee?"Client-managed delivery":"Pickup only"},booking:{provider:"Not selected"},payment:{provider:"Not selected"},inventory:{provider:"Not selected"},contact:{provider:"WhatsApp and email enquiry"}};
   const config=normalizeForgePayload({
     template:client.template,
-    brand:{name:client.name,slug:client.slug,tagline:client.tagline,description:client.description,heroImageUrl:client.hero,galleryImages:[client.hero]},
+    brand:{name:client.name,slug:client.slug,tagline:client.tagline,description:client.description,heroImageUrl:client.hero,galleryImages:client.products.map((item)=>item.image).join("\n")},
     business:{address:client.address,hours:client.hours,currency:client.currency,locale:"en-ET",deliveryFee:client.deliveryFee||0},
     contact:{phone:client.phone,whatsapp:client.phone,email:`hello@${client.slug.replaceAll("-"," ").replaceAll(" ","")}.example`},
     theme, font:"Manrope + DM Sans", sections:sharedSections,
