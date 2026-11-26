@@ -9,7 +9,13 @@ const expected = [
   ["beetle-home-demo", "Beetle Home", "furniture"],
   ["nova-collective-demo", "NOVA Collective", "ecommerce"],
   ["greenbasket-market-demo", "GreenBasket Market", "grocery"],
-  ["urban-bites-demo", "Urban Bites", "foodDelivery"]
+  ["urban-bites-demo", "Urban Bites", "foodDelivery"],
+  ["daybreak-coffee-demo", "Daybreak Coffee", "cafe"],
+  ["saffron-stone-demo", "Saffron & Stone", "restaurant"],
+  ["sable-living-demo", "Sable Living", "furniture"],
+  ["forme-studio-demo", "FORME Studio", "ecommerce"],
+  ["harvest-market-demo", "Harvest Market", "grocery"],
+  ["dash-kitchen-demo", "Dash Kitchen", "foodDelivery"]
 ];
 const errors = [];
 const seenColors = new Set();
@@ -47,4 +53,4 @@ if (errors.length) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-console.log(`Verified ${expected.length} independent client websites: unique identities and palettes, generated routes, shared commerce component, client editor, validated local config and asset APIs, Playwright QA scaffolding, client logo, clean project boundary and release audit.`);
+console.log(`Verified ${expected.length} independent client websites (two brands per niche): unique identities and palettes, generated routes, shared commerce component, client editor, validated local config and asset APIs, Playwright QA scaffolding, client logo, clean project boundary and release audit.`);

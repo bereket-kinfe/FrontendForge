@@ -215,3 +215,19 @@
 .forge-actual-preview-toolbar small{color:#aab5c7;font-size:8px}
 .forge-actual-preview-toolbar a{color:#fff;text-decoration:none;border:1px solid #61708c;border-radius:6px;padding:7px 9px}
 @media(max-width:700px){.forge-inspector-style-grid{grid-template-columns:1fr}.forge-design-version-save{flex-direction:column}.forge-actual-preview-card>header{align-items:flex-start;flex-direction:column}.forge-actual-preview-actions{width:100%}.forge-actual-preview-actions button,.forge-actual-preview-actions a{flex:1;text-align:center}.forge-actual-preview-card iframe,.forge-client-preview-real{height:65vh}}
+
+
+/* Actual client-site viewport controls and expanded preview mode. */
+.forge-actual-preview-viewports{display:inline-flex;align-items:center;gap:3px;padding:3px;border:1px solid #465572;border-radius:8px;background:#101827}
+.forge-actual-preview-viewports button{border:0!important;background:transparent!important;color:#aab7ce!important;padding:6px 8px!important}
+.forge-actual-preview-viewports button.active{background:#344666!important;color:#fff!important}
+.forge-actual-preview-stage{display:flex;justify-content:center;align-items:flex-start;padding:22px;overflow:auto;max-height:calc(82vh + 44px);background:radial-gradient(circle at 50% 0,#e5eaf2,#cbd5e1 78%)}
+.forge-actual-preview-frame{flex:0 0 auto;max-width:100%;overflow:hidden;border:8px solid #111827;border-bottom-width:12px;border-radius:16px;background:#fff;box-shadow:0 18px 55px #0b122044;transition:width .2s ease}
+.forge-actual-preview-frame-mobile{max-width:390px!important;border-width:9px;border-radius:30px}
+.forge-actual-preview-frame-tablet{border-radius:20px}
+.forge-actual-preview-frame iframe{display:block;width:100%;height:min(76vh,820px);border:0;background:#fff}
+.forge-actual-preview-card.is-expanded{position:fixed;inset:12px;z-index:9999;margin:0;border-color:#54627a;box-shadow:0 0 0 100vmax #0b1220cc}
+.forge-actual-preview-card.is-expanded>header{position:relative;z-index:1;flex-wrap:wrap;background:#101827}
+.forge-actual-preview-card.is-expanded .forge-actual-preview-stage{height:calc(100vh - 105px);max-height:none}
+.forge-actual-preview-card.is-expanded .forge-actual-preview-frame iframe{height:calc(100vh - 155px)}
+@media(max-width:700px){.forge-actual-preview-stage{padding:12px 6px;max-height:68vh}.forge-actual-preview-frame iframe{height:62vh}.forge-actual-preview-card.is-expanded{inset:4px}.forge-actual-preview-card.is-expanded .forge-actual-preview-stage{height:calc(100vh - 145px)}.forge-actual-preview-card.is-expanded .forge-actual-preview-frame iframe{height:calc(100vh - 200px)}}

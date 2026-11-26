@@ -12,7 +12,7 @@ permissions:
 jobs:
   verify-and-build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -52,4 +52,5 @@ jobs:
             playwright-report-master/
             playwright-report/
             test-results/
+            client-build-report.json
           if-no-files-found: ignore

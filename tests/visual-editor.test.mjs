@@ -89,4 +89,23 @@ test("actual client preview route renders the same ClientProjectHome used by gen
   assert.ok(renderer.includes('content("about", "secondaryBody"'));
   assert.ok(renderer.includes('"data-forge-heading-size"'));
   assert.ok(frame.includes("/forge/preview/"));
+  assert.ok(frame.includes("Preview viewport"));
+  assert.ok(frame.includes('"desktop"'));
+  assert.ok(frame.includes('"tablet"'));
+  assert.ok(frame.includes('"mobile"'));
+  assert.ok(frame.includes("Expand preview"));
+});
+
+
+test("generated client homepage has an accessible mobile navigation and niche art direction layer", async () => {
+  const homepage = await read("src/components/client/ClientProjectHome.js");
+  const styles = await read("src/components/client/ClientProjectHomeArtDirection.css");
+  assert.ok(homepage.includes("client-project-desktop-nav"));
+  assert.ok(homepage.includes("client-project-mobile-menu"));
+  assert.ok(styles.includes(".client-project-cafe"));
+  assert.ok(styles.includes(".client-project-restaurant"));
+  assert.ok(styles.includes(".client-project-furniture"));
+  assert.ok(styles.includes(".client-project-ecommerce"));
+  assert.ok(styles.includes(".client-project-grocery"));
+  assert.ok(styles.includes(".client-project-foodDelivery"));
 });

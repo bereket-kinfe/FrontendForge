@@ -119,3 +119,25 @@ test("furniture product variants remain in the same client enquiry cart through 
   await expect(page.locator(".furniture-checkout")).toContainText(product.name);
   await expect(page.locator(".furniture-checkout")).toContainText("Estimated subtotal");
 });
+
+test("generated homepage follows its niche art direction and captures a visual regression screenshot", async ({ page }, testInfo) => {
+  const response = await page.goto("/");
+  expect(response?.ok()).toBeTruthy();
+  const site = page.locator("main.client-project.client-project-" + config.template);
+  await expect(site).toBeVisible();
+  await expect(site.locator(".client-project-header")).toBeVisible();
+  await expect(site.locator(".client-project-hero")).toBeVisible();
+  const primary = await site.evaluate((element) => getComputedStyle(element).getPropertyValue("--client-primary").trim());
+  expect(primary.toLowerCase()).toBe(config.theme.primary.toLowerCase());
+  await page.screenshot({ path: testInfo.outputPath("niche-homepage.png"), fullPage: true, animations: "disabled" });
+});
+
+test("mobile visitors can open the niche navigation menu", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile-chromium", "Mobile navigation is tested in the mobile Chromium viewport.");
+  await page.goto("/");
+  const menu = page.locator(".client-project-mobile-menu");
+  await expect(menu).toBeVisible();
+  await menu.locator("summary").click();
+  await expect(menu.locator("nav[aria-label='Mobile navigation']")).toBeVisible();
+  expect(await menu.locator("nav a").count()).toBeGreaterThanOrEqual(3);
+});

@@ -1,4 +1,5 @@
 import "./ClientProjectHome.css";
+import "./ClientProjectHomeArtDirection.css";
 import ClientContactForm from "@/components/client/ClientContactForm";
 import FurnitureExperience from "@/components/furniture/FurnitureExperience";
 import { normalizeFurnitureClientProduct } from "@/lib/furniture-store.mjs";
@@ -304,7 +305,11 @@ export default function ClientProjectHome({ config }) {
         {brand.logoUrl ? <img src={brand.logoUrl} alt={`${brand.name} logo`} /> : <span className="client-project-mark">{brand.name.slice(0, 1).toUpperCase()}</span>}
         <strong>{brand.name}</strong>
       </Link>
-      <nav aria-label="Main navigation">{navItems.map(([label, href]) => <a href={href} key={href}>{label}</a>)}</nav>
+      <nav className="client-project-desktop-nav" aria-label="Main navigation">{navItems.map(([label, href]) => <a href={href} key={href}>{label}</a>)}</nav>
+      <details className="client-project-mobile-menu">
+        <summary aria-label="Open navigation menu"><span>Menu</span><span aria-hidden="true">☰</span></summary>
+        <nav aria-label="Mobile navigation">{navItems.map(([label, href]) => <a href={href} key={href}>{label}</a>)}</nav>
+      </details>
       <div className="client-project-header-action">
         {orderEnabled ? <Link href={orderHref} className="client-project-pill">Order online ↗</Link> : orderExternalUrl ? <a className="client-project-pill" href={orderExternalUrl} target="_blank" rel="noreferrer">Order online ↗</a> : waLink ? <a className="client-project-pill" href={waLink} target="_blank" rel="noreferrer">Contact us ↗</a> : <a className="client-project-pill" href="#contact">Contact us ↗</a>}
       </div>

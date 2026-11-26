@@ -42,7 +42,7 @@ npm test                    # unit and generator tests only
 npm run check:structure     # required source tree check
 npm run check:sql           # migration structure checks
 npm run audit:client -- client-projects/<slug>  # audit one client folder
-npm run verify:demo-clients # verify all six packaged demo websites
+npm run verify:demo-clients # verify all twelve branded demo websites
 npm run test:e2e              # master furniture/admin browser tests (Chromium desktop + mobile)
 npm run test:clients:e2e       # desktop + mobile browser QA for all generated clients
 npm run package:client -- <slug> # audit-checked handover for one client
@@ -58,7 +58,7 @@ The ecommerce, food and furniture starters include their own browser commerce fl
 
 The database/admin layer is deployable scaffolding, not a live connection: each client must create its own Supabase project/store, apply the included migrations, configure server-only credentials and verify its deployment. The existing template checkout UIs still use their enquiry handoff until they are explicitly connected to the database order API. Provider selections and public hosted URLs are setup records, not live API connections. No payment gateway is included.
 
-Six separately branded demonstration projects are included under `client-projects/`. Run `npm run verify:demo-clients` to confirm their identities, assets, project boundaries and release audits.
+Twelve separately branded demonstration projects are included under `client-projects/`. Run `npm run verify:demo-clients` to confirm their identities, assets, project boundaries and release audits.
 
 ## Edit a generated client locally
 
@@ -90,7 +90,7 @@ npm run test:e2e
 npm run test:clients:e2e
 ```
 
-The GitHub Actions workflow in `.github/workflows/ci.yml` runs the same checks after push and pull request. `npm run build:clients` runs a production build for every generated project; all six client projects must be present first (`npm run generate:demo-clients`). `npm run test:all` includes the structure check, SQL migration structure check, all unit/generator tests and six client audits.
+The GitHub Actions workflow in `.github/workflows/ci.yml` runs the same checks after push and pull request. `npm run build:clients` runs a production build for every generated project; all twelve client projects must be present first (`npm run generate:demo-clients`). `npm run test:all` includes the structure check, SQL migration structure check, all unit/generator tests and six client audits.
 
 Set `NEXT_PUBLIC_SITE_URL` for canonical metadata and sitemap generation. Server-side Supabase keys belong only in `.env.local` or the deployment provider's secret environment; never commit service-role credentials.
 

@@ -86,6 +86,8 @@ const required = [
   "scripts/release-client.mjs",
   "scripts/run-client-e2e.mjs",
   "src/components/client/ClientProjectHome.css",
+  "src/components/client/ClientProjectHomeArtDirection.css",
+  "tests/demo-brand-catalog.test.mjs",
   "src/components/client/ClientContactForm.js",
   "src/components/client/ClientMultiPage.js",
   "src/components/client/ClientMultiPage.css",
