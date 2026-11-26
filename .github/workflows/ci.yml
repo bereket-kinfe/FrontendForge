@@ -21,19 +21,19 @@ jobs:
           cache: npm
       - name: Install master dependencies
         run: npm ci
+      - name: Generate independent niche demo websites
+        run: npm run generate:demo-clients
       - name: Static structure and schema checks
         run: |
           npm run check:structure
           npm run check:sql
       - name: Unit and generator tests
         run: npm test
-      - name: Generate independent demo clients
-        run: npm run generate:demo-clients
       - name: Verify client projects and release audits
         run: npm run verify:demo-clients
       - name: Build master studio
         run: npm run build
-      - name: Build all six generated client sites
+      - name: Build all twelve generated client sites
         run: npm run build:clients
       - name: Install Playwright and Chromium
         run: |
@@ -41,7 +41,7 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Master desktop and mobile browser tests
         run: npm run test:e2e
-      - name: All six client desktop and mobile browser tests
+      - name: All twelve client desktop and mobile browser tests
         run: npm run test:clients:e2e
       - name: Upload browser test reports
         if: always()
