@@ -1,0 +1,39 @@
+{
+  "name": "frontendforge-studio",
+  "version": "3.5.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "check:structure": "node scripts/check-structure.mjs",
+    "audit:client": "node scripts/audit-client.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:furniture": "node --test tests/furniture-commerce.test.mjs",
+    "test:all": "npm run check:structure && npm run check:sql && npm test && npm run verify:demo-clients",
+    "verify:demo-clients": "node scripts/verify-demo-clients.mjs",
+    "generate:demo-clients": "node scripts/generate-demo-clients.mjs",
+    "install:e2e": "npm install --save-dev @playwright/test@1.65.1 && npx playwright install chromium",
+    "test:e2e": "node scripts/run-master-e2e.mjs",
+    "test:clients:e2e": "node scripts/run-client-e2e.mjs",
+    "package:client": "node scripts/package-client.mjs",
+    "release:client": "node scripts/release-client.mjs",
+    "release:all": "node scripts/release-all-clients.mjs",
+    "package:all": "node scripts/package-all-clients.mjs",
+    "build:clients": "node scripts/build-all-clients.mjs",
+    "test:release": "npm run test:all && npm run build && npm run build:clients && npm run test:e2e && npm run test:clients:e2e",
+    "check:sql": "node scripts/check-supabase-schema.mjs"
+  },
+  "dependencies": {
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
+  }
+}

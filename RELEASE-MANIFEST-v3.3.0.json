@@ -1,0 +1,28 @@
+{
+  "product": "FrontendForge Studio",
+  "version": "3.3.0",
+  "release_date": "2026-11-17",
+  "release_scope": "Dashboard-first studio redesign aligned with the supplied dashboard reference; six starter cards; client quick-start workflow; project list; client brand editor; branded client preview; local client production-build action; studio and starter metadata version alignment.",
+  "dashboard": {
+    "layout": "sidebar + workspace topbar + gradient hero + starter gallery + client quick-start + project list",
+    "starter_count": 6,
+    "starter_ids": ["cafe", "restaurant", "furniture", "ecommerce", "foodDelivery", "grocery"],
+    "functional_actions": ["starter selection", "quick-start wizard", "template search", "Ctrl/Cmd+K search focus", "client project listing", "client configuration preview", "client brand/contact/theme editing", "QA audit", "client production build"]
+  },
+  "verification": {
+    "test_all": "passed",
+    "unit_and_dashboard_tests": { "passed": 78, "failed": 0 },
+    "structure_check": "passed",
+    "sql_migration_check": "passed",
+    "generated_client_verification": { "passed": 6, "total": 6 },
+    "static_js_jsx_syntax": { "files": 86, "errors": 0 },
+    "next_production_build": "not run: npm ci timed out and offline cache lacked tslib package",
+    "playwright_browser_tests": "not run: dependencies and browser binaries unavailable in this environment"
+  },
+  "security": {
+    "filesystem_project_editing": "local loopback development only",
+    "client_build_execution": "local loopback development only; fixed npm run build command; validated project slug",
+    "theme_editing": "hex color allowlist validation",
+    "client_identity_and_catalog": "preserved by dashboard brand editor"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "product": "FrontendForge Studio",
+  "version": "3.1.0",
+  "release_scope": "Reorganized studio, local client editor, white-label client generation, Playwright QA scaffolding and client handover packaging",
+  "payment_gateway": "not included by request",
+  "verification": {
+    "unit_and_generator_tests": {
+      "passed": 60,
+      "failed": 0
+    },
+    "structure_required_files": 67,
+    "generated_demo_clients": {
+      "passed": 6,
+      "total": 6
+    },
+    "client_release_audits": {
+      "passed": 6,
+      "total": 6,
+      "warnings": 0
+    },
+    "javascript_jsx_syntax_modules": 448,
+    "handover_zip_integrity": {
+      "passed": 6,
+      "total": 6
+    },
+    "next_production_build": "not verified; dependency installation timed out and the Next.js executable was unavailable",
+    "playwright_browser_tests": "not run; Playwright is not installed in this environment"
+  },
+  "client_projects": [
+    {
+      "slug": "machi-coffee-demo",
+      "name": "MACHI Coffee",
+      "starter": "cafe"
+    },
+    {
+      "slug": "foodie-kitchen-demo",
+      "name": "Foodie Kitchen",
+      "starter": "restaurant"
+    },
+    {
+      "slug": "beetle-home-demo",
+      "name": "Beetle Home",
+      "starter": "furniture"
+    },
+    {
+      "slug": "nova-collective-demo",
+      "name": "NOVA Collective",
+      "starter": "ecommerce"
+    },
+    {
+      "slug": "greenbasket-market-demo",
+      "name": "GreenBasket Market",
+      "starter": "grocery"
+    },
+    {
+      "slug": "urban-bites-demo",
+      "name": "Urban Bites",
+      "starter": "foodDelivery"
+    }
+  ]
+}

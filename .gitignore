@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+.env*
+!.env.example
+!.env.client.example
+.DS_Store
+npm-debug.log*
+client-projects/
+
+# Generated handover archives and browser test artifacts
+client-deliverables/
+playwright-report/
+test-results/
+
+# Local FrontendForge QA and build history
+.frontendforge-status/

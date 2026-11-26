@@ -1,0 +1,55 @@
+name: FrontendForge release checks
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install master dependencies
+        run: npm ci
+      - name: Static structure and schema checks
+        run: |
+          npm run check:structure
+          npm run check:sql
+      - name: Unit and generator tests
+        run: npm test
+      - name: Generate independent demo clients
+        run: npm run generate:demo-clients
+      - name: Verify client projects and release audits
+        run: npm run verify:demo-clients
+      - name: Build master studio
+        run: npm run build
+      - name: Build all six generated client sites
+        run: npm run build:clients
+      - name: Install Playwright and Chromium
+        run: |
+          npm run install:e2e
+          npx playwright install --with-deps chromium
+      - name: Master desktop and mobile browser tests
+        run: npm run test:e2e
+      - name: All six client desktop and mobile browser tests
+        run: npm run test:clients:e2e
+      - name: Upload browser test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-reports
+          path: |
+            playwright-report-master/
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore

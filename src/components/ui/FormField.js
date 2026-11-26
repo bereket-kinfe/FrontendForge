@@ -1,0 +1,3 @@
+export default function FormField({ label, name, type = "text", placeholder, required = false, hint, ...props }) {
+  return <div className="form-field"><label htmlFor={name}>{label}{required && <span aria-hidden="true"> *</span>}</label><input id={name} name={name} type={type} placeholder={placeholder} required={required} aria-describedby={hint ? `${name}-hint` : undefined} {...props}/>{hint && <small id={`${name}-hint`}>{hint}</small>}</div>;
+}

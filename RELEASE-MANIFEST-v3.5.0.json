@@ -1,0 +1,186 @@
+{
+  "product": "FrontendForge Studio",
+  "version": "3.5.0",
+  "release_date": "2026-11-19",
+  "release_scope": "Niche-specific multi-page website generation for all six starters, shared brand-aware page shell, functional customer journeys, per-client navigation and catalog routes, generated client examples and handovers.",
+  "multi_page_system": {
+    "registry": "src/lib/forge/niche-pages.mjs",
+    "generated_top_level_route": "src/app/[page]/page.js",
+    "collection_routes": [
+      "/collections",
+      "/collections/[slug]"
+    ],
+    "product_route": "/products/[slug]",
+    "client_config_fields": [
+      "pageRoutes",
+      "navigation",
+      "brand",
+      "theme",
+      "business",
+      "contact",
+      "products"
+    ],
+    "niches": {
+      "cafe": [
+        "/",
+        "/menu",
+        "/about",
+        "/visit",
+        "/reservations",
+        "/catering",
+        "/contact",
+        "/faq",
+        "/order/[slug] when enabled"
+      ],
+      "restaurant": [
+        "/",
+        "/menu",
+        "/about",
+        "/reservations",
+        "/delivery",
+        "/visit",
+        "/contact",
+        "/faq",
+        "/order/[slug] when enabled"
+      ],
+      "foodDelivery": [
+        "/",
+        "/menu",
+        "/delivery",
+        "/how-to-order",
+        "/about",
+        "/contact",
+        "/faq",
+        "/order/[slug] when enabled"
+      ],
+      "furniture": [
+        "/",
+        "/shop",
+        "/collections",
+        "/collections/[slug]",
+        "/products/[slug]",
+        "/showroom",
+        "/delivery",
+        "/care-guide",
+        "/about",
+        "/contact",
+        "/faq",
+        "/cart",
+        "/checkout"
+      ],
+      "ecommerce": [
+        "/",
+        "/shop",
+        "/collections",
+        "/collections/[slug]",
+        "/products/[slug]",
+        "/shipping-returns",
+        "/about",
+        "/contact",
+        "/faq",
+        "/cart",
+        "/checkout"
+      ],
+      "grocery": [
+        "/",
+        "/shop",
+        "/collections",
+        "/collections/[slug]",
+        "/products/[slug]",
+        "/delivery",
+        "/about",
+        "/contact",
+        "/faq",
+        "/cart",
+        "/checkout"
+      ]
+    }
+  },
+  "functional_flows": {
+    "furniture": "Shop or collection \u2192 product detail \u2192 material/size/color variants \u2192 client-specific persistent enquiry bag \u2192 checkout \u2192 WhatsApp/email enquiry",
+    "retail_and_grocery": "Shop or collection \u2192 product detail \u2192 client-specific persistent cart and wishlist \u2192 cart \u2192 checkout \u2192 WhatsApp/email enquiry",
+    "food": "Menu page, food product detail, and generated order page share the same food-order cart. Product detail supports size/serving and add-on selections; reservation/catering/contact pages send enquiries rather than confirm bookings."
+  },
+  "demo_clients": [
+    {
+      "slug": "machi-coffee-demo",
+      "template": "cafe",
+      "brand": "MACHI Coffee"
+    },
+    {
+      "slug": "foodie-kitchen-demo",
+      "template": "restaurant",
+      "brand": "Foodie Kitchen"
+    },
+    {
+      "slug": "beetle-home-demo",
+      "template": "furniture",
+      "brand": "Beetle Home"
+    },
+    {
+      "slug": "nova-collective-demo",
+      "template": "ecommerce",
+      "brand": "NOVA Collective"
+    },
+    {
+      "slug": "greenbasket-market-demo",
+      "template": "grocery",
+      "brand": "GreenBasket Market"
+    },
+    {
+      "slug": "urban-bites-demo",
+      "template": "foodDelivery",
+      "brand": "Urban Bites"
+    }
+  ],
+  "verification": {
+    "test_all": {
+      "status": "PASS",
+      "passed": 89,
+      "failed": 0
+    },
+    "structure_check": {
+      "status": "PASS",
+      "required_files": 96
+    },
+    "sql_migration_check": {
+      "status": "PASS",
+      "requirements": 12,
+      "migrations": 2
+    },
+    "six_demo_client_audits": {
+      "status": "PASS",
+      "passed": 6,
+      "warnings": 0
+    },
+    "client_handover_packages": {
+      "status": "PASS",
+      "created": 6,
+      "audit_checks_each": 22,
+      "warnings": 0
+    },
+    "typescript_syntax_parser": {
+      "status": "PASS",
+      "files": 671,
+      "errors": 0
+    },
+    "next_production_build": {
+      "status": "NOT_RUN",
+      "reason": "npm run build returned next: not found. npm ci --prefer-offline --no-audit --no-fund timed out while accessing the package registry."
+    },
+    "playwright_browser_tests": {
+      "status": "NOT_RUN",
+      "reason": "Playwright package and Chromium browser binaries were not installed in this environment; E2E tests are included in the release."
+    },
+    "live_external_integrations": {
+      "status": "NOT_RUN",
+      "reason": "No client provider credentials or live provider accounts were supplied"
+    }
+  },
+  "known_boundaries": [
+    "Reservation, catering, contact and food-order forms are enquiry handoffs; they do not confirm a booking or order by themselves.",
+    "Furniture and retail checkout prepares WhatsApp/email enquiries; it does not process payment.",
+    "Replace sample client copy, images, contact details, prices, hours and policy placeholders with approved client data before launch.",
+    "Run production builds and Playwright desktop/mobile tests locally or in CI after dependencies and browser binaries are installed."
+  ]
+}

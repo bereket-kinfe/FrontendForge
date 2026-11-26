@@ -1,0 +1,73 @@
+{
+  "product": "FrontendForge Studio",
+  "version": "3.2.1",
+  "release_date": "2026-11-17",
+  "release_scope": "Furniture starter repair; generated-client cart/detail parity; multi-store Supabase/Postgres scaffolding; authenticated admin API; order validation; client generation/editor; six demo projects; release packaging and QA.",
+  "payment_gateway": "intentionally excluded by request",
+  "verification": {
+    "test_all": "passed",
+    "unit_and_generator_tests": {
+      "passed": 72,
+      "failed": 0
+    },
+    "structure_required_files": 86,
+    "sql_migration_requirements": 12,
+    "sql_migrations_checked": 2,
+    "generated_demo_clients": {
+      "passed": 6,
+      "total": 6
+    },
+    "client_release_audits": {
+      "passed": 6,
+      "total": 6,
+      "warnings": 0
+    },
+    "javascript_jsx_typescript_static_parse": {
+      "parsed": 589,
+      "syntax_errors": 0
+    },
+    "client_handover_archives": {
+      "passed": 6,
+      "total": 6
+    },
+    "master_production_build": "blocked: next executable unavailable because npm ci timed out while reaching package registry",
+    "client_production_builds": "blocked: master dependencies not installed",
+    "playwright_browser_tests": "blocked: @playwright/test not installed",
+    "live_supabase_acceptance": "not run: no Supabase project credentials or database supplied",
+    "production_deployment": "not performed: no hosting environment supplied"
+  },
+  "client_projects": [
+    {
+      "slug": "beetle-home-demo",
+      "name": "Beetle Home",
+      "starter": "furniture"
+    },
+    {
+      "slug": "foodie-kitchen-demo",
+      "name": "Foodie Kitchen",
+      "starter": "restaurant"
+    },
+    {
+      "slug": "greenbasket-market-demo",
+      "name": "GreenBasket Market",
+      "starter": "grocery"
+    },
+    {
+      "slug": "machi-coffee-demo",
+      "name": "MACHI Coffee",
+      "starter": "cafe"
+    },
+    {
+      "slug": "nova-collective-demo",
+      "name": "NOVA Collective",
+      "starter": "ecommerce"
+    },
+    {
+      "slug": "urban-bites-demo",
+      "name": "Urban Bites",
+      "starter": "foodDelivery"
+    }
+  ],
+  "acceptance_decision": "development release candidate; not production-certified until master and client builds, browser E2E, and live database staging tests pass",
+  "verification_report": "docs/operations/RELEASE-VERIFICATION-3.2.1.md"
+}
